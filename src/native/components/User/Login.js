@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Container, Content, Form, Item, Label, Input, Text, Button, View,
+  Container,
+  Content,
+  Form,
+  Item,
+  Label,
+  Input,
+  Text,
+  Button,
+  View,
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import Messages from '../UI/Messages';
@@ -17,18 +25,18 @@ class Login extends React.Component {
     success: PropTypes.string,
     loading: PropTypes.bool.isRequired,
     onFormSubmit: PropTypes.func.isRequired,
-  }
+  };
 
   static defaultProps = {
     error: null,
     success: null,
     member: {},
-  }
+  };
 
   constructor(props) {
     super(props);
     this.state = {
-      email: (props.member && props.member.email) ? props.member.email : '',
+      email: props.member && props.member.email ? props.member.email : '',
       password: '',
     };
 
@@ -36,15 +44,15 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (name, val) => this.setState({ [name]: val })
+  handleChange = (name, val) => this.setState({ [name]: val });
 
   handleSubmit = () => {
     const { onFormSubmit } = this.props;
 
     return onFormSubmit(this.state)
-      .then(() => setTimeout(() => Actions.pop(), 1000))
+      .then(() => setTimeout(() => Actions.tabbar(), 1000))
       .catch(() => {});
-  }
+  };
 
   render() {
     const { loading, error, success } = this.props;
@@ -86,7 +94,7 @@ class Login extends React.Component {
 
             <View padder>
               <Button block onPress={this.handleSubmit} disabled={loading}>
-                <Text>{loading ? 'Loading' : 'Login' }</Text>
+                <Text>{loading ? 'Loading' : 'Login'}</Text>
               </Button>
             </View>
           </Form>

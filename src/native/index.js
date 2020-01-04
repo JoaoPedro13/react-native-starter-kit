@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar, Platform } from 'react-native';
-import * as  Font from 'expo-font';
+import * as Font from 'expo-font';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { Router, Stack } from 'react-native-router-flux';
@@ -20,9 +20,9 @@ export default class App extends React.Component {
   static propTypes = {
     store: PropTypes.shape({}).isRequired,
     persistor: PropTypes.shape({}).isRequired,
-  }
+  };
 
-  state = { loading: true }
+  state = { loading: true };
 
   async componentWillMount() {
     await Font.loadAsync({
@@ -37,21 +37,17 @@ export default class App extends React.Component {
   render() {
     const { loading } = this.state;
     const { store, persistor } = this.props;
-
+    console.log('loading', loading);
+    console.log('props', this.props);
     if (loading) return <Loading />;
 
     return (
       <Root>
         <Provider store={store}>
-          <PersistGate
-            loading={<Loading />}
-            persistor={persistor}
-          >
+          <PersistGate loading={<Loading />} persistor={persistor}>
             <StyleProvider style={getTheme(theme)}>
               <Router>
-                <Stack key="root">
-                  {Routes}
-                </Stack>
+                <Stack key="root">{Routes}</Stack>
               </Router>
             </StyleProvider>
           </PersistGate>
