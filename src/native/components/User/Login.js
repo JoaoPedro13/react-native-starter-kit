@@ -43,7 +43,7 @@ class Login extends React.Component {
 
     return onFormSubmit(this.state)
       .then(() => setTimeout(() => Actions.pop(), 1000))
-      .catch(() => {});
+      .catch(() => { });
   }
 
   render() {
@@ -86,7 +86,7 @@ class Login extends React.Component {
 
             <View padder>
               <Button block onPress={this.handleSubmit} disabled={loading}>
-                <Text>{loading ? 'Loading' : 'Login' }</Text>
+                <Text>{loading ? 'Loading' : 'Login'}</Text>
               </Button>
             </View>
           </Form>

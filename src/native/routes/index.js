@@ -27,64 +27,20 @@ import AboutComponent from '../components/About';
 
 const Index = (
   <Stack hideNavBar>
-    <Stack
-      hideNavBar
-      key="profile"
-      title="PROFILE"
-      icon={() => <Icon name="contact" {...DefaultProps.icons} />}
-      {...DefaultProps.navbarProps}
-    >
-      <Scene
-        key="profileHome"
-        component={MemberContainer}
-        Layout={ProfileComponent}
-      />
-      <Scene
-        back
-        key="signUp"
-        title="SIGN UP"
-        {...DefaultProps.navbarProps}
-        component={SignUpContainer}
-        Layout={SignUpComponent}
-      />
-      <Scene
-        back
-        key="login"
-        title="LOGIN"
-        {...DefaultProps.navbarProps}
-        component={LoginContainer}
-        Layout={LoginComponent}
-      />
-      <Scene
-        back
-        key="forgotPassword"
-        title="FORGOT PASSWORD"
-        {...DefaultProps.navbarProps}
-        component={ForgotPasswordContainer}
-        Layout={ForgotPasswordComponent}
-      />
-      <Scene
-        back
-        key="updateProfile"
-        title="UPDATE PROFILE"
-        {...DefaultProps.navbarProps}
-        component={UpdateProfileContainer}
-        Layout={UpdateProfileComponent}
-      />
-    </Stack>
+
 
     <Scene hideNavBar>
       <Tabs
         key="tabbar"
         swipeEnabled
         type="replace"
-        showLabel={false}
+        showLabel={true}
         {...DefaultProps.tabProps}
       >
         <Stack
           hideNavBar
           key="home"
-          title={AppConfig.appName.toUpperCase()}
+          title="Ao Calhas"
           icon={() => <Icon name="planet" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
@@ -93,13 +49,26 @@ const Index = (
 
         <Stack
           hideNavBar
-          key="recipes"
-          title="RECIPES"
+          key="melhores"
+          title="Melhores"
           icon={() => <Icon name="book" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene
-            key="recipes"
+            key="melhores"
+            component={RecipesContainer}
+            Layout={RecipeListingComponent}
+          />
+        </Stack>
+        <Stack
+          hideNavBar
+          key="episodios"
+          title="Episódios"
+          icon={() => <Icon name="planet" {...DefaultProps.icons} />}
+          {...DefaultProps.navbarProps}
+        >
+          <Scene
+            key="episodios"
             component={RecipesContainer}
             Layout={RecipeListingComponent}
           />
@@ -108,7 +77,7 @@ const Index = (
         <Stack
           hideNavBar
           key="profile"
-          title="PROFILE"
+          title="Perfil"
           icon={() => <Icon name="contact" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
@@ -117,51 +86,12 @@ const Index = (
             component={MemberContainer}
             Layout={ProfileComponent}
           />
-          <Scene
-            back
-            key="signUp"
-            title="SIGN UP"
-            {...DefaultProps.navbarProps}
-            component={SignUpContainer}
-            Layout={SignUpComponent}
-          />
-          <Scene
-            back
-            key="login"
-            title="LOGIN"
-            {...DefaultProps.navbarProps}
-            component={LoginContainer}
-            Layout={LoginComponent}
-          />
-          <Scene
-            back
-            key="forgotPassword"
-            title="FORGOT PASSWORD"
-            {...DefaultProps.navbarProps}
-            component={ForgotPasswordContainer}
-            Layout={ForgotPasswordComponent}
-          />
-          <Scene
-            back
-            key="updateProfile"
-            title="UPDATE PROFILE"
-            {...DefaultProps.navbarProps}
-            component={UpdateProfileContainer}
-            Layout={UpdateProfileComponent}
-          />
+
         </Stack>
       </Tabs>
     </Scene>
 
-    <Scene
-      back
-      clone
-      key="recipe"
-      title="RECIPE"
-      {...DefaultProps.navbarProps}
-      component={RecipesContainer}
-      Layout={RecipeSingleComponent}
-    />
+
   </Stack>
 );
 
