@@ -1,8 +1,8 @@
 export default {
-  apiKey: 'AIzaSyAHshJehJ-E_9AoUN3kfY8BLvZtFoXxFto',
-  authDomain: 'react-native-starter-app.firebaseapp.com',
-  databaseURL: 'https://react-native-starter-app.firebaseio.com',
-  projectId: 'react-native-starter-app',
-  storageBucket: 'react-native-starter-app.appspot.com',
-  messagingSenderId: '762822550667',
+  apiKey: 'AIzaSyAMgyTsQovUngbkuM2jVWzfa-VfeKLKcpo',
+  authDomain: 'nesp-4d00a.firebaseapp.com',
+  databaseURL: 'https://nesp-4d00a.firebaseio.com',
+  projectId: 'nesp-4d00a',
+  storageBucket: 'nesp-4d00a.appspot.com',
+  messagingSenderId: '587788332651',
 };

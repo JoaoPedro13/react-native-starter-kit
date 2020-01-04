@@ -1,7 +1,6 @@
 import React from 'react';
 import { Scene, Tabs, Stack } from 'react-native-router-flux';
 import { Icon } from 'native-base';
-
 import DefaultProps from '../constants/navigation';
 import AppConfig from '../../constants/config';
 
@@ -28,6 +27,52 @@ import AboutComponent from '../components/About';
 
 const Index = (
   <Stack hideNavBar>
+    <Stack
+      hideNavBar
+      key="profile"
+      title="PROFILE"
+      icon={() => <Icon name="contact" {...DefaultProps.icons} />}
+      {...DefaultProps.navbarProps}
+    >
+      <Scene
+        key="profileHome"
+        component={MemberContainer}
+        Layout={ProfileComponent}
+      />
+      <Scene
+        back
+        key="signUp"
+        title="SIGN UP"
+        {...DefaultProps.navbarProps}
+        component={SignUpContainer}
+        Layout={SignUpComponent}
+      />
+      <Scene
+        back
+        key="login"
+        title="LOGIN"
+        {...DefaultProps.navbarProps}
+        component={LoginContainer}
+        Layout={LoginComponent}
+      />
+      <Scene
+        back
+        key="forgotPassword"
+        title="FORGOT PASSWORD"
+        {...DefaultProps.navbarProps}
+        component={ForgotPasswordContainer}
+        Layout={ForgotPasswordComponent}
+      />
+      <Scene
+        back
+        key="updateProfile"
+        title="UPDATE PROFILE"
+        {...DefaultProps.navbarProps}
+        component={UpdateProfileContainer}
+        Layout={UpdateProfileComponent}
+      />
+    </Stack>
+
     <Scene hideNavBar>
       <Tabs
         key="tabbar"
@@ -37,6 +82,7 @@ const Index = (
         {...DefaultProps.tabProps}
       >
         <Stack
+          hideNavBar
           key="home"
           title={AppConfig.appName.toUpperCase()}
           icon={() => <Icon name="planet" {...DefaultProps.icons} />}
@@ -46,21 +92,31 @@ const Index = (
         </Stack>
 
         <Stack
+          hideNavBar
           key="recipes"
           title="RECIPES"
           icon={() => <Icon name="book" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="recipes" component={RecipesContainer} Layout={RecipeListingComponent} />
+          <Scene
+            key="recipes"
+            component={RecipesContainer}
+            Layout={RecipeListingComponent}
+          />
         </Stack>
 
         <Stack
+          hideNavBar
           key="profile"
           title="PROFILE"
           icon={() => <Icon name="contact" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="profileHome" component={MemberContainer} Layout={ProfileComponent} />
+          <Scene
+            key="profileHome"
+            component={MemberContainer}
+            Layout={ProfileComponent}
+          />
           <Scene
             back
             key="signUp"
